@@ -15,3 +15,5 @@ Como podemos ver, há uma conexão entre ambos os dispositivos que nos permite a
 Temos como o esperado, a mensagem recebida de volta no ESP32.
 
 ![alt text](https://github.com/grigacci/UART/blob/main/Docs/arduino_screenshot.jpg)
+
+Além disso, foi adicionado um arquivo para testar o funcionamento da interface UART no ESP32, onde é feita a comunição serial entre dois ESP32, para assim garantir seu funcionamento pleno.
