@@ -14,9 +14,9 @@ void setup() {
 
 void loop() {
   digitalWrite(led, LOW);
-  SerialPort.print("Hello World.");
+  SerialPort.print("Hello World.\n");
   listen();
-  delay(50); //just to make things more readable 
+  //delay(50); //just to make things more readable 
 }
 
 void listen()
