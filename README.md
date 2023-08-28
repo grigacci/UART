@@ -8,7 +8,7 @@ Com os equipamentos em mãos, a FPGA foi configurada para receber os dados em su
 
 Abaixo, podemos ver uma imagem mostrando o setup para se testar o funcionamento da interface.
 
-Clique no video abaixo
+Clique no video 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EZUalvDFWBs/0.jpg)](https://www.youtube.com/watch?v=EZUalvDFWBs)
 
 
