@@ -39,6 +39,9 @@ entity tb_uart is
         -- Local clock frequency
         local_clock_hz      : positive := 99999334
     );
+    port (
+        reset_tb : in std_logic
+    )
 end entity;
 
 architecture beh of tb_uart is
@@ -119,8 +122,8 @@ begin
     -- READ/WRITE STIMULUS DATA FILES
     ---------------------------------------------------------------------------
     stim_parser : process
-        constant input_path     : string := "F:\Quartus\io\input.txt";
-        constant output_path    : string := "F:\Quartus\io\output.txt";
+        constant input_path     : string := "/home/ricardoduarte/Documents/el_dorado/UART/io/input";
+        constant output_path    : string := "/home/ricardoduarte/Documents/el_dorado/UART/io/output";
         file     input_file     : text;
         file     output_file    : text;
         variable data_line      : line;
@@ -152,7 +155,7 @@ begin
                 -- Get Data
                 readline(input_file, data_line);
                 read(data_line, data, read_ok);
-                report "Reading : " & to_hstring(to_stdlogicvector(data));
+                --report "Reading : " & to_hstring(to_stdlogicvector(data));
                 local_data          <= to_stdlogicvector(data);
                 local_data_in_stb   <= '1';
                 tx_count            <= tx_count + 1;
@@ -202,7 +205,7 @@ begin
     )
     port map(  
         clock_y3            => remote_clock,
-        user_reset          => '0',
+        user_reset          => reset_tb,
         usb_rs232_rxd       => remote_rx,
         usb_rs232_txd       => remote_tx
     );
@@ -217,7 +220,7 @@ begin
     port map(
         -- general
         clock               => local_clock,
-        reset               => '0',
+        reset               => reset_tb,
         data_stream_in      => local_data,
         data_stream_in_stb  => local_data_in_stb,
         data_stream_in_ack  => local_data_in_ack,
